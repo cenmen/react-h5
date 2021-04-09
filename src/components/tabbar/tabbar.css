@@ -1,11 +1,11 @@
-.fix-bottom {
+.fix_bottom {
     position: fixed;
     bottom: 0;
     width: 100%;
     background: #FFF;
 }
 
-.item-content {
+.item_content {
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -17,6 +17,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color:inherit;
+}
+
+.icon_font {
+    font-size: 40px !important;
 }
 
 .icon {

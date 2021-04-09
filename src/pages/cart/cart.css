@@ -1,0 +1,16 @@
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content img {
+    width: 60px;
+}
+
+.home_container {
+    height: 120vh;
+    max-width: 100%;
+    background: teal;
+    border: crimson solid 5px;
+}

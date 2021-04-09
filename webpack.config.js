@@ -24,23 +24,30 @@ module.exports = {
   ],
   module: {
     rules: [
-      
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                mode: "local",
+                localIdentName: "[name]-[local]-[hash:base64:5]",
+              }
+            }
+          },
           {
             loader: 'px2rem-loader',
             options: {
-                remUnit: 75,
-                remPrecision: 8
+              remUnit: 75,
+              remPrecision: 8
             }
-          }
+          },
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|eot|svg|ttf|woff|woff2)$/,
         use: [
           'file-loader'
         ]

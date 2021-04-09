@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Button, List } from 'antd-mobile'
 
-import "./home.css"
-
-const Card = function (params) {
-  return (
-    <div className="card-content">
-      <h3>{params.title}</h3>
-      <img src={caifu}></img>
-    </div>
-  )
-}
+import styles from "./home.css"
 
 
-export default function App(props) {
+export default function Home(props) {
   const [data, setData] = useState("你就好啦")
 
   useEffect(() => {
@@ -24,7 +15,7 @@ export default function App(props) {
 
   return (
     <div>
-      <div className="home-container">{data}</div>
+      <div className={styles.home_container}>{data}</div>
     </div>
   )
 }

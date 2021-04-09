@@ -1,15 +1,17 @@
 import React from "react"
-import './tabbar.css'
+import { Link } from "react-router-dom";
+import styles from './tabbar.css'
 
 export default function Tabbar(props) {
     return (
-        <div id="tabbar" className="fix-bottom">
-            <div className="item-content">
+        <div id="tabbar" className={styles.fix_bottom}>
+            <div className={styles.item_content}>
                 {props.tabbar.map(item => 
-                    <div className="item" key={item.name}>
-                        <img className="icon" src={item.icon}></img>
-                        <span className="name">{item.name}</span>
-                    </div>
+                    <Link className={styles.item} key={item.name} to={item.path}>
+                        {item.icon && <img className={styles.icon} src={item.icon}></img>}
+                        {item.class && <i className={item.class + ' ' + styles.icon_font}></i>}
+                        <span className={styles.name}>{item.name}</span>
+                    </Link>
                 )}
             </div>
         </div>
