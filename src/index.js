@@ -4,6 +4,8 @@ import 'lib-flexible';
 
 import App from './pages/app'
 
+import './mock/api'
+
 ReactDOM.render(
   <App />,
   document.getElementById('root')

@@ -19,10 +19,10 @@ import styles from "./app.css"
   3.--pages
   4.--route
   5.--css modules
-  4.axios
-  4.redux
-  5.mock
-  6.think.js
+  6.--axios
+  7.mock
+  8.redux
+  9.think.js
 */
 
 const tabbar = [
