@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from "react"
 import request from '../../api/requset'
 import { Button, List } from 'antd-mobile'
+import GoodCard from './good-card/good-card'
 
 import styles from "./home.css"
-import '../../mock/api'
 
 
 export default function Home(props) {
-  const [data, setData] = useState("你就好啦")
+  const [list, setList] = useState([])
 
-  function test(params) {
-    request({method: 'get', url: '/test/list', params: {name: '123'}}).then(res => {
-      debugger
+  function loadData(params) {
+    request({method: 'get', url: '/h5/list', params: {name: '123'}}).then(res => {
+      setList(res.data.dataSource)
     })
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      setData("最紧要开心")
-      
-    }, 1500)
+    loadData()
   }, [])
 
   return (
-    <div>
-      <div className={styles.home_container} onClick={() => test()}>{data}</div>
+    <div className={styles.home_container}>
+      {list.map(val => 
+        <GoodCard value={val} key={val.id}></GoodCard>
+      )}
     </div>
   )
 }
