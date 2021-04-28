@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import request from '../../api/requset'
-import { Button, List } from 'antd-mobile'
+import { Button, ListView } from 'antd-mobile'
 import GoodCard from './good-card/good-card'
 
 import styles from "./home.css"
