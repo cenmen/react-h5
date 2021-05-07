@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  useLocation
 } from "react-router-dom";
 import Tabbar from '../components/tabbar/tabbar'
 import Home from './home/home'
@@ -20,7 +20,7 @@ import styles from "./app.css"
   4.--route
   5.--css modules
   6.--axios
-  7.mock
+  7.--mock
   8.redux
   9.think.js
 */
@@ -31,8 +31,14 @@ const tabbar = [
   {class: 'iconfont icon-yonghu', name: '我的', path: '/mine'},
 ]
 
+const tabPaths = tabbar.map(val => val.path)
+
 export default function App(props) {
   const [tabbarHeight, setTabbarHeight] = useState(0)
+  const [location, setLocation] = useState(useLocation())
+  // let location = useLocation()
+  console.log('location', location)
+
   useEffect(() => {
     const {offsetHeight: tabbarHeight} = document.getElementById('tabbar')
     setTabbarHeight(tabbarHeight + 'px')

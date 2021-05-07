@@ -3,23 +3,20 @@ import request from '../../api/requset'
 import { Button, List } from 'antd-mobile'
 
 import styles from "./home.css"
-import '../../mock/api'
 
 
 export default function Home(props) {
   const [data, setData] = useState("你就好啦")
 
-  function test(params) {
+  function loadData(params) {
     request({method: 'get', url: '/test/list', params: {name: '123'}}).then(res => {
-      debugger
+      const {data} = res
+      console.log(data)
     })
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      setData("最紧要开心")
-      
-    }, 1500)
+    loadData()
   }, [])
 
   return (
