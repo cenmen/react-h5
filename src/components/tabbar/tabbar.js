@@ -1,5 +1,5 @@
 import React from "react"
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import styles from './tabbar.css'
 
 export default function Tabbar(props) {

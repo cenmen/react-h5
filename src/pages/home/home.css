@@ -1,6 +1,5 @@
 .home_container {
-    height: 120vh;
-    max-width: 100%;
-    background: chocolate;
-    border: crimson solid 5px;
+    max-width: 100vw;
+    padding: 0 20px;
+    background: #FBFAF9;
 }

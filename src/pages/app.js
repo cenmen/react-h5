@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   useLocation
@@ -9,6 +9,7 @@ import Tabbar from '../components/tabbar/tabbar'
 import Home from './home/home'
 import Cart from './cart/cart'
 import Mine from './mine/mine'
+import Detail from './detail/detail'
 
 import '../assets/font/iconfont.css';
 import styles from "./app.css"
@@ -22,7 +23,6 @@ import styles from "./app.css"
   6.--axios
   7.--mock
   8.redux
-  9.think.js
 */
 
 const tabbar = [
@@ -34,36 +34,47 @@ const tabbar = [
 const tabPaths = tabbar.map(val => val.path)
 
 export default function App(props) {
-  const [tabbarHeight, setTabbarHeight] = useState(0)
-  const [location, setLocation] = useState(useLocation())
-  // let location = useLocation()
-  console.log('location', location)
-
-  useEffect(() => {
-    const {offsetHeight: tabbarHeight} = document.getElementById('tabbar')
-    setTabbarHeight(tabbarHeight + 'px')
-  }, [])
-
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/mine">
-            <Mine />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <PageViews />
+    </Router>
+  )
+}
+
+function PageViews() {
+  const [tabbarHeight, setTabbarHeight] = useState(0)
+
+  useEffect(() => {
+    const dom = document.getElementById('tabbar')
+    const tabbarHeight = (dom && dom.offsetHeight) || null
+    tabbarHeight && setTabbarHeight(tabbarHeight + 'px')
+  }, [])
+
+  let location = useLocation()
+  console.log('location', location)
+
+  function IsTabbar() {
+    const {pathname} = location
+    if (tabPaths.includes(pathname)) {
+      return (
         <div>
           <Tabbar tabbar={tabbar} />
-          <div className={styles['tabbar-place']} style={{height: tabbarHeight}}></div>
+          <div className={styles['tabbar-place']} style={{height: tabbarHeight, width: '100%'}}></div>
         </div>
-      </div>
-    </Router>
-    
+      )
+    }
+    return (<Fragment></Fragment>)
+  }
+
+  return (
+    <div>
+      <Switch>
+        <Route path='/mine' component={Mine} />
+        <Route path='/cart' component={Cart} />
+        <Route path='/detail/:id' component={Detail} />
+        <Route path='/' component={Home} />
+      </Switch>
+      <IsTabbar/>
+    </div>
   )
 }
