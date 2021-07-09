@@ -1,24 +1,25 @@
-import App from '../pages/app'
+import React from "react"
+import {Switch, Route} from "react-router-dom";
+
 import Home from '../pages/home/home'
 import Cart from '../pages/cart/cart'
 import Mine from '../pages/mine/mine'
+import Detail from '../pages/detail/detail'
 
-export const route = [
-  {
-    path: '/',
-      component: App,
-      indexRoute: { component: Home },
-      childRoutes: [
-        { path: 'home', component: Home },
-        { path: 'cart', component: Cart },
-        { path: 'mine', component: Mine },
-        // { path: 'inbox',
-        //     component: Inbox,
-        //     childRoutes: [
-        //       { path: '/messages/:id', component: Message }
-        //     ]
-        // }
-      ]
-  }
+const config = [
+  { path: '/mine', component: Mine },
+  { path: '/cart', component: Cart },
+  { path: '/detail/:id', component: Detail },
+  { path: '/', component: Home }
 ]
+
+export default function RouterConfig() {
+  return (
+    <Switch>
+      {config.map((config, index) => 
+        <Route path={config.path} component={config.component} key={index} />
+      )}
+    </Switch>
+  )
+}
   

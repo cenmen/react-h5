@@ -1,15 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react"
 import {
   HashRouter as Router,
-  Switch,
-  Route,
   useLocation
 } from "react-router-dom";
+import RouterConfig from '../config/route'
 import Tabbar from '../components/tabbar/tabbar'
-import Home from './home/home'
-import Cart from './cart/cart'
-import Mine from './mine/mine'
-import Detail from './detail/detail'
 
 import '../assets/font/iconfont.css';
 import styles from "./app.css"
@@ -68,12 +63,7 @@ function PageViews() {
 
   return (
     <div>
-      <Switch>
-        <Route path='/mine' component={Mine} />
-        <Route path='/cart' component={Cart} />
-        <Route path='/detail/:id' component={Detail} />
-        <Route path='/' component={Home} />
-      </Switch>
+      <RouterConfig/>
       <IsTabbar/>
     </div>
   )
