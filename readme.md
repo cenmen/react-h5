@@ -22,7 +22,7 @@ https://zhuanlan.zhihu.com/p/28876652~~
 https://www.jianshu.com/p/512ae9ef6b7b<br>
 https://github.com/camsong/blog/issues/5
 
-路由导航：react-router-dom<br>
+路由导航：react-router<br>
 参考资料:<br>
 https://reactrouter.com/web/guides/quick-start
 
