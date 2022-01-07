@@ -1,14 +1,10 @@
-项目笔记<br>
-1、webpack初始化项目<br>
-2、使用lodash和打包输出<br>
-3、引入react、react-dom框架<br>
-4、使用loader、plugin打包输出<br>
-5、引入antd-mobile样式框架<br>
-6、使用lib-flexible、px2rem-loader进行移动端适配<br>
-7、引入react-router-dom实现简单路由跳转<br>
-8、使用css-loader进行css modules<br>
-9、引入mockjs<br>
-
+## 项目搭建
+  - webpack4
+  - antd-mobile
+  - axios
+  - react
+  - react-router
+  - rem 样式适配方案
 
 webpack实用的插件<br>
 https://juejin.cn/post/6944940506862485511
