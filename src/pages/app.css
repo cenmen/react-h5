@@ -1,0 +1,14 @@
+:global(body) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tabbar-place {
+  width: 100%;
+}
+
+/* 覆盖全局 antd-mobile button 组件的默认背景色 参考官方文档(https://mobile.ant.design/zh/guide/css-variables) */
+:global(:root:root) {
+  --adm-button-background-color: red;
+}
